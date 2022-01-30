@@ -8,7 +8,7 @@ public class BombExplode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Boss")
+        if (other.gameObject.tag == "Boss" || other.gameObject.tag == "Floor")
         {
             Destroy(gameObject);
             Debug.Log("BombExplosion");
