@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BossDying : MonoBehaviour
+public class YouWin : MonoBehaviour
 {
-
+    [SerializeField] ParticleSystem collectParticle = null;
     public float maxHealth = 100f;
     public float bossHealth = 1f;
 
@@ -19,6 +19,7 @@ public class BossDying : MonoBehaviour
     {
         if (other.gameObject.tag == "Bomb")
         {
+            collectParticle.Play();
             bossHealth = bossHealth - 25;
             Debug.Log("boss hurt");
             Debug.Log(bossHealth);
@@ -40,7 +41,8 @@ public class BossDying : MonoBehaviour
     {
         bossHealth = 0f;
         Debug.Log("boss Died");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
+
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
